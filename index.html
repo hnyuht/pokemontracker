@@ -73,14 +73,6 @@
             display: block;
         }
 
-        .search-box {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            margin-bottom: 30px;
-        }
-
         .import-section {
             background: white;
             border-radius: 15px;
@@ -94,71 +86,51 @@
             margin-bottom: 20px;
         }
 
-        .upload-area {
-            border: 3px dashed #667eea;
-            border-radius: 15px;
-            padding: 40px;
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-select-button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             text-align: center;
-            background: #f8f9ff;
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .file-select-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .file-name-display {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
             margin-bottom: 20px;
-        }
-
-        .upload-area:hover {
-            background: #f0f2ff;
-            border-color: #764ba2;
-        }
-
-        .upload-area.dragover {
-            background: #e8ebff;
-            border-color: #764ba2;
-        }
-
-        .upload-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
-
-        .upload-text {
-            font-size: 1.2em;
             color: #666;
-            margin-bottom: 10px;
-        }
-
-        .upload-subtext {
-            font-size: 0.9em;
-            color: #999;
-        }
-
-        #fileInput {
-            display: none;
+            text-align: center;
         }
 
         .button-group {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-        }
-
-        .search-input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        input[type="text"], input[type="number"] {
-            flex: 1;
-            padding: 15px;
-            font-size: 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: border-color 0.3s;
-        }
-
-        input[type="text"]:focus, input[type="number"]:focus {
-            outline: none;
-            border-color: #667eea;
+            margin-top: 20px;
         }
 
         button {
@@ -200,101 +172,25 @@
             background: #28a745;
         }
 
-        .filter-options {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        select {
-            padding: 10px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-            background: white;
-            cursor: pointer;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: white;
-            font-size: 1.2em;
-        }
-
-        .spinner {
-            border: 4px solid rgba(255,255,255,0.3);
-            border-top: 4px solid white;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .results {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .card-image {
+        .progress-bar {
             width: 100%;
-            height: 300px;
-            object-fit: contain;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            background: #f5f5f5;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
         }
 
-        .card-name {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .card-set {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
-        .price-info {
+        .progress-fill {
+            height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-
-        .price-row {
+            transition: width 0.3s;
             display: flex;
-            justify-content: space-between;
-            margin: 5px 0;
-        }
-
-        .price-label {
-            font-weight: 600;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            width: 0%;
         }
 
         .collection-stats {
@@ -372,56 +268,31 @@
             font-weight: bold;
         }
 
-        .action-buttons {
-            display: flex;
-            gap: 5px;
-        }
-
         .action-btn {
-            padding: 5px 10px;
-            font-size: 12px;
+            padding: 8px 15px;
+            font-size: 14px;
         }
 
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-            border-radius: 15px;
-            color: #666;
-        }
-
-        .no-results-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
-
-        .error {
-            background: #ff6b6b;
-            color: white;
-            padding: 15px;
+        .instructions {
+            background: #e8f4fd;
+            padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
-            text-align: center;
+            border-left: 5px solid #667eea;
         }
 
-        .progress-bar {
-            width: 100%;
-            height: 30px;
-            background: #e0e0e0;
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 20px 0;
+        .instructions h3 {
+            color: #667eea;
+            margin-bottom: 10px;
         }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
+        .instructions ul {
+            margin-left: 20px;
+            color: #333;
+        }
+
+        .instructions li {
+            margin: 8px 0;
         }
     </style>
 </head>
@@ -435,28 +306,36 @@
         <div class="tabs">
             <button class="tab-btn active" data-tab="import">📥 Import Cards</button>
             <button class="tab-btn" data-tab="collection">📚 My Collection</button>
-            <button class="tab-btn" data-tab="search">🔍 Search Cards</button>
         </div>
 
         <!-- Import Tab -->
         <div id="importTab" class="tab-content active">
             <div class="import-section">
                 <h2>📥 Import Your Card List from Excel</h2>
-                <p style="color: #666; margin-bottom: 20px;">
-                    Upload an Excel file (.xlsx or .xls) with your card collection. Your file should have these columns:<br>
-                    <strong>Card Name | Set Name | Quantity | Purchase Price</strong>
-                </p>
                 
-                <div class="upload-area" id="uploadArea">
-                    <div class="upload-icon">📄</div>
-                    <div class="upload-text">Click to upload or drag & drop your Excel file</div>
-                    <div class="upload-subtext">Supports .xlsx and .xls files</div>
+                <div class="instructions">
+                    <h3>How to Import:</h3>
+                    <ul>
+                        <li><strong>Step 1:</strong> Click "Download Template" to get a sample Excel file</li>
+                        <li><strong>Step 2:</strong> Fill in your cards with: Card Name, Set Name, Quantity, Purchase Price</li>
+                        <li><strong>Step 3:</strong> Click "Choose Excel File" and select your file</li>
+                        <li><strong>Step 4:</strong> Click "Import Cards" to process your list</li>
+                    </ul>
                 </div>
-                
-                <input type="file" id="fileInput" accept=".xlsx,.xls">
-                
+
+                <div class="file-input-wrapper">
+                    <input type="file" id="fileInput" accept=".xlsx,.xls" />
+                    <label for="fileInput" class="file-select-button">
+                        📁 Choose Excel File (.xlsx or .xls)
+                    </label>
+                </div>
+
+                <div id="fileNameDisplay" class="file-name-display" style="display: none;">
+                    No file selected
+                </div>
+
                 <div class="button-group">
-                    <button id="uploadBtn" class="btn-success">📤 Choose File</button>
+                    <button id="importBtn" class="btn-success" disabled>📥 Import Cards</button>
                     <button id="downloadTemplateBtn" class="btn-secondary">📋 Download Template</button>
                 </div>
 
@@ -521,42 +400,12 @@
                 </table>
             </div>
         </div>
-
-        <!-- Search Tab -->
-        <div id="searchTab" class="tab-content">
-            <div class="search-box">
-                <div class="search-input-group">
-                    <input type="text" id="searchInput" placeholder="Enter Pokémon card name">
-                    <button id="searchBtn">Search</button>
-                </div>
-                <div class="filter-options">
-                    <select id="setFilter">
-                        <option value="">All Sets</option>
-                    </select>
-                    <select id="rarityFilter">
-                        <option value="">All Rarities</option>
-                    </select>
-                    <select id="sortBy">
-                        <option value="name">Sort by Name</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="price-low">Price: Low to High</option>
-                    </select>
-                </div>
-            </div>
-
-            <div id="error" class="error" style="display: none;"></div>
-            <div id="loading" class="loading" style="display: none;">
-                <div class="spinner"></div>
-                <p>Searching for cards...</p>
-            </div>
-            <div id="results" class="results"></div>
-        </div>
     </div>
 
     <script>
-        const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
-        const uploadBtn = document.getElementById('uploadBtn');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        const importBtn = document.getElementById('importBtn');
         const downloadTemplateBtn = document.getElementById('downloadTemplateBtn');
         const importProgress = document.getElementById('importProgress');
         const progressFill = document.getElementById('progressFill');
@@ -564,17 +413,8 @@
         const exportExcelBtn = document.getElementById('exportExcelBtn');
         const clearAllBtn = document.getElementById('clearAllBtn');
 
-        const searchInput = document.getElementById('searchInput');
-        const searchBtn = document.getElementById('searchBtn');
-        const loading = document.getElementById('loading');
-        const results = document.getElementById('results');
-        const errorDiv = document.getElementById('error');
-        const setFilter = document.getElementById('setFilter');
-        const rarityFilter = document.getElementById('rarityFilter');
-        const sortBy = document.getElementById('sortBy');
-
         let myCollection = [];
-        let allCards = [];
+        let selectedFile = null;
 
         // Tab switching
         document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -589,58 +429,26 @@
             });
         });
 
-        // Upload handling
-        uploadBtn.addEventListener('click', () => fileInput.click());
-        
-        uploadArea.addEventListener('click', () => fileInput.click());
-        
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
-        });
-        
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
-        
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            const file = e.dataTransfer.files[0];
-            if (file) handleFile(file);
-        });
-        
+        // File input handling
         fileInput.addEventListener('change', (e) => {
             const file = e.target.files[0];
-            if (file) handleFile(file);
+            if (file) {
+                selectedFile = file;
+                fileNameDisplay.style.display = 'block';
+                fileNameDisplay.textContent = `Selected: ${file.name}`;
+                importBtn.disabled = false;
+            }
+        });
+
+        importBtn.addEventListener('click', () => {
+            if (selectedFile) {
+                handleFile(selectedFile);
+            }
         });
 
         downloadTemplateBtn.addEventListener('click', downloadTemplate);
         exportExcelBtn.addEventListener('click', exportToExcel);
         clearAllBtn.addEventListener('click', clearAllCards);
-        searchBtn.addEventListener('click', searchCards);
-
-        loadSetsAndRarities();
-
-        async function loadSetsAndRarities() {
-            try {
-                const setsResponse = await fetch('https://api.pokemontcg.io/v2/sets');
-                const setsData = await setsResponse.json();
-                const allSets = setsData.data.sort((a, b) => b.releaseDate.localeCompare(a.releaseDate));
-                
-                setFilter.innerHTML = '<option value="">All Sets</option>' + 
-                    allSets.map(s => `<option value="${s.id}">${s.name} (${s.releaseDate.split('-')[0]})</option>`).join('');
-
-                const raritiesResponse = await fetch('https://api.pokemontcg.io/v2/rarities');
-                const raritiesData = await raritiesResponse.json();
-                const allRarities = raritiesData.data.sort();
-                
-                rarityFilter.innerHTML = '<option value="">All Rarities</option>' + 
-                    allRarities.map(r => `<option value="${r}">${r}</option>`).join('');
-            } catch (error) {
-                console.error('Error loading filters:', error);
-            }
-        }
 
         function handleFile(file) {
             const reader = new FileReader();
@@ -652,31 +460,41 @@
                     const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
                     const jsonData = XLSX.utils.sheet_to_json(firstSheet);
                     
+                    if (jsonData.length === 0) {
+                        alert('No data found in Excel file!');
+                        return;
+                    }
+
                     await importFromExcel(jsonData);
                 } catch (error) {
                     alert('Error reading file: ' + error.message);
+                    console.error(error);
                 }
+            };
+            
+            reader.onerror = () => {
+                alert('Error reading file!');
             };
             
             reader.readAsArrayBuffer(file);
         }
 
         async function importFromExcel(data) {
-            if (data.length === 0) {
-                alert('No data found in Excel file!');
-                return;
-            }
-
             importProgress.style.display = 'block';
+            importBtn.disabled = true;
+            
             let imported = 0;
             let failed = 0;
+            const failedCards = [];
 
             for (let i = 0; i < data.length; i++) {
                 const row = data[i];
-                const cardName = row['Card Name'] || row['CardName'] || row['Name'];
-                const setName = row['Set Name'] || row['SetName'] || row['Set'];
-                const quantity = parseInt(row['Quantity'] || row['Qty'] || 1);
-                const purchasePrice = parseFloat(row['Purchase Price'] || row['Price'] || row['PurchasePrice'] || 0);
+                
+                // Try different possible column names
+                const cardName = row['Card Name'] || row['CardName'] || row['Name'] || row['card name'];
+                const setName = row['Set Name'] || row['SetName'] || row['Set'] || row['set name'];
+                const quantity = parseInt(row['Quantity'] || row['Qty'] || row['quantity'] || 1);
+                const purchasePrice = parseFloat(row['Purchase Price'] || row['Price'] || row['PurchasePrice'] || row['purchase price'] || 0);
 
                 if (!cardName) {
                     failed++;
@@ -688,6 +506,7 @@
                     if (setName) {
                         searchUrl += ` set.name:"${setName}"`;
                     }
+                    searchUrl += '&pageSize=1';
 
                     const response = await fetch(searchUrl);
                     const cardData = await response.json();
@@ -716,6 +535,7 @@
                         imported++;
                     } else {
                         failed++;
+                        failedCards.push(cardName);
                     }
 
                     const progress = Math.round(((i + 1) / data.length) * 100);
@@ -723,16 +543,32 @@
                     progressFill.textContent = progress + '%';
                     progressText.textContent = `Processing: ${i + 1} of ${data.length} cards`;
 
-                    await new Promise(resolve => setTimeout(resolve, 150));
+                    // Delay to avoid rate limiting
+                    await new Promise(resolve => setTimeout(resolve, 200));
 
                 } catch (error) {
-                    console.error('Error importing card:', error);
+                    console.error('Error importing card:', cardName, error);
                     failed++;
+                    failedCards.push(cardName);
                 }
             }
 
             importProgress.style.display = 'none';
-            alert(`Import complete!\n✅ Successfully imported: ${imported} cards\n❌ Failed: ${failed} cards`);
+            importBtn.disabled = false;
+            
+            let message = `Import complete!\n✅ Successfully imported: ${imported} cards\n❌ Failed: ${failed} cards`;
+            
+            if (failedCards.length > 0 && failedCards.length <= 10) {
+                message += '\n\nFailed cards:\n' + failedCards.join(', ');
+            }
+            
+            alert(message);
+            
+            // Reset file input
+            fileInput.value = '';
+            fileNameDisplay.style.display = 'none';
+            selectedFile = null;
+            importBtn.disabled = true;
             
             // Switch to collection tab
             document.querySelector('[data-tab="collection"]').click();
@@ -741,7 +577,8 @@
         function getMarketPrice(card) {
             const prices = card.tcgplayer?.prices || {};
             return prices.holofoil?.market || prices.normal?.market || 
-                   prices.reverseHolofoil?.market || prices['1stEditionHolofoil']?.market || 0;
+                   prices.reverseHolofoil?.market || prices['1stEditionHolofoil']?.market || 
+                   prices.unlimitedHolofoil?.market || 0;
         }
 
         function updateCollectionDisplay() {
@@ -772,7 +609,7 @@
                             <td>$${currentValue.toFixed(2)}</td>
                             <td class="${profitClass}">${profitLoss >= 0 ? '+' : ''}$${profitLoss.toFixed(2)}</td>
                             <td>
-                                <button class="action-btn btn-danger" onclick="removeFromCollection('${card.id}')">Remove</button>
+                                <button class="action-btn btn-danger" onclick="removeCard('${card.id}')">Remove</button>
                             </td>
                         </tr>
                     `;
@@ -794,15 +631,16 @@
             
             const profitEl = document.getElementById('totalProfit');
             profitEl.textContent = `${totalProfit >= 0 ? '+' : ''}$${totalProfit.toFixed(2)}`;
-            profitEl.style.color = totalProfit >= 0 ? '#28a745' : '#dc3545';
+            profitEl.style.color = totalProfit >= 0 ? 'white' : 'white';
         }
 
         function downloadTemplate() {
             const template = [
                 ['Card Name', 'Set Name', 'Quantity', 'Purchase Price'],
-                ['Charizard', 'Base Set', '1', '150.00'],
-                ['Pikachu VMAX', 'Vivid Voltage', '2', '45.50'],
-                ['Mewtwo', 'Evolutions', '1', '12.00']
+                ['Charizard', 'Base Set', 1, 150.00],
+                ['Pikachu VMAX', 'Vivid Voltage', 2, 45.50],
+                ['Mewtwo', 'Evolutions', 1, 12.00],
+                ['Blastoise', 'Base Set', 1, 75.00]
             ];
 
             const ws = XLSX.utils.aoa_to_sheet(template);
@@ -831,6 +669,8 @@
             const wb = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wb, ws, 'My Collection');
             XLSX.writeFile(wb, 'pokemon-collection-export.xlsx');
+            
+            alert('Collection exported successfully!');
         }
 
         function clearAllCards() {
@@ -841,38 +681,15 @@
             }
         }
 
-        function removeFromCollection(cardId) {
+        function removeCard(cardId) {
             if (confirm('Remove this card from your collection?')) {
                 myCollection = myCollection.filter(c => c.id !== cardId);
                 updateCollectionDisplay();
             }
         }
 
-        async function searchCards() {
-            const query = searchInput.value.trim();
-            loading.style.display = 'block';
-            results.innerHTML = '';
-            errorDiv.style.display = 'none';
-
-            try {
-                let url = 'https://api.pokemontcg.io/v2/cards?pageSize=250';
-                let queryParams = [];
-                
-                if (query) queryParams.push(`name:"${query}"`);
-                if (setFilter.value) queryParams.push(`set.id:${setFilter.value}`);
-                if (rarityFilter.value) queryParams.push(`rarity:"${rarityFilter.value}"`);
-                
-                if (queryParams.length > 0) url += '&q=' + queryParams.join(' ');
-
-                const response = await fetch(url);
-                const data = await response.json();
-                allCards = data.data || [];
-                
-                if (allCards.length === 0) {
-                    results.innerHTML = `<div class="no-results"><div class="no-results-icon">🔍</div><h2>No cards found</h2></div>`;
-                } else {
-                    displayCards(allCards);
-                }
-            } catch (error) {
-                errorDiv.textContent = 'Error fetching cards. Please try again.';
-                errorDiv.style.display = 'block';
+        // Make removeCard available globally
+        window.removeCard = removeCard;
+    </script>
+</body>
+</html>
